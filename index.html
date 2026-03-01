@@ -1,34 +1,515 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>♦ Mi Portafolio ♦</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rey Valdés | CV</title>
+  <style>
+    /* ── RESET & BASE ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #0d1117;
+      --surface:  #161b22;
+      --border:   #30363d;
+      --accent:   #58a6ff;
+      --accent2:  #3fb950;
+      --text:     #e6edf3;
+      --muted:    #8b949e;
+      --radius:   12px;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── LAYOUT ── */
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 4rem;
+    }
+
+    /* ── HEADER ── */
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      padding: 2.5rem 2rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 3px solid var(--accent);
+      object-fit: cover;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    header h1 span { color: var(--accent); }
+
+    .tagline {
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .contact-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .6rem;
+      justify-content: center;
+      margin-top: .5rem;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: .3rem .9rem;
+      font-size: .85rem;
+      color: var(--muted);
+    }
+
+    .chip svg { width: 14px; height: 14px; fill: var(--accent); flex-shrink: 0; }
+
+    /* ── SECCIONES ── */
+    section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: .6rem;
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+
+    /* ── EDUCACIÓN ── */
+    .edu-item + .edu-item { margin-top: 1rem; }
+    .edu-item h3 { font-size: 1rem; font-weight: 600; }
+    .edu-item p  { color: var(--muted); font-size: .9rem; }
+    .badge {
+      display: inline-block;
+      background: #1f3a5f;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      border-radius: 999px;
+      font-size: .75rem;
+      padding: .15rem .65rem;
+      margin-top: .25rem;
+    }
+    .badge.green { background: #1a3a25; color: var(--accent2); border-color: var(--accent2); }
+
+    /* ── TIMELINE DE EXPERIENCIAS ── */
+    .timeline { position: relative; padding-left: 1.5rem; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 6px; bottom: 6px;
+      width: 2px;
+      background: var(--border);
+      border-radius: 2px;
+    }
+
+    .tl-item { position: relative; margin-bottom: 1.5rem; }
+    .tl-item:last-child { margin-bottom: 0; }
+
+    .tl-dot {
+      position: absolute;
+      left: -1.5rem;
+      top: 6px;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--bg);
+      transform: translateX(-4px);
+    }
+    .tl-dot.green { background: var(--accent2); }
+
+    .tl-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: .25rem;
+    }
+
+    .tl-company { font-weight: 600; font-size: .95rem; }
+    .tl-role    { font-size: .85rem; color: var(--accent); margin-top: .1rem; }
+    .tl-date    { font-size: .8rem;  color: var(--muted); white-space: nowrap; }
+    .tl-desc    { font-size: .85rem; color: var(--muted); margin-top: .4rem; }
+
+    /* ── SKILLS / IDIOMAS ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: .75rem;
+    }
+
+    .skill-chip {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: .5rem .8rem;
+      font-size: .85rem;
+      text-align: center;
+      color: var(--text);
+    }
+
+    /* ── GITHUB PROJECTS ── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+
+    .project-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem;
+      transition: border-color .2s;
+    }
+    .project-card:hover { border-color: var(--accent); }
+    .project-card h3 { font-size: .95rem; color: var(--accent); margin-bottom: .4rem; }
+    .project-card p  { font-size: .82rem; color: var(--muted); }
+    .project-meta {
+      display: flex;
+      gap: .8rem;
+      margin-top: .75rem;
+      font-size: .78rem;
+      color: var(--muted);
+    }
+    .project-meta span { display: flex; align-items: center; gap: .3rem; }
+    .dot-lang {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: .8rem;
+      margin-top: 2.5rem;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 500px) {
+      header h1 { font-size: 1.5rem; }
+    }
+  </style>
 </head>
 <body>
+<div class="container">
 
+  <!-- ══ HEADER ══ -->
   <header>
-  <nav class="nav">
-    <div class="nav__logo">Rey Valdes</div>
+    <img
+      class="avatar"
+      src="https://github.com/Rexwar.png"
+      alt="Rey Valdés"
+    />
+    <div>
+      <h1>Rey <span>Valdés</span> Marangunic</h1>
+      <p class="tagline">Estudiante de Ingeniería Civil en Computación e Informática · UCN</p>
+    </div>
 
-    <ul class="nav__links">
-      <li><a href="#/inicio">Inicio</a></li>
-      <li><a href="#/proyectos">Proyectos</a></li>
-      <li><a href="#/contacto">Contacto</a></li>
-    </ul>
-  </nav>
-</header>
+    <div class="contact-chips">
 
+      <!-- Email -->
+      <span class="chip">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 4H4C2.9 4 2 4.9 2 6v12c0 1.1.9 2 2 2h16c1.1
+                   0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8
+                   5 8-5v2z"/>
+        </svg>
+        <a href="mailto:reyvaldesm@gmail.com">reyvaldesm@gmail.com</a>
+      </span>
 
-  <main id="app">
-    <h1>Inicio</h1>
-    <p>Proyecto GitHub Pages desde cero.</p>
-  </main>
+      <!-- Teléfono -->
+      <span class="chip">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4
+                   1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1
+                   1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3
+                   4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2
+                   2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/>
+        </svg>
+        +569 37477315
+      </span>
+
+      <!-- Ubicación -->
+      <span class="chip">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7
+                   13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5c-1.4
+                   0-2.5-1.1-2.5-2.5S10.6 6.5 12 6.5 14.5 7.6
+                   14.5 9 13.4 11.5 12 11.5z"/>
+        </svg>
+        Antofagasta, Chile
+      </span>
+
+      <!-- GitHub -->
+      <span class="chip">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 .3C5.4.3 0 5.7 0 12.3c0 5.3 3.4 9.8 8.2
+                   11.4.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.5-1.4-1.3-1.8-1.3-1.8-1.1-.7.1-.7.1-.7
+                   1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1
+                   .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9
+                   0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2
+                   0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17
+                   4.7 18 5 18 5c.6 1.7.2 2.9.1 3.2.8.8 1.2
+                   1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8
+                   1.1.8 2.2v3.3c0 .3.2.7.8.6C20.6 22.1 24
+                   17.6 24 12.3 24 5.7 18.6.3 12 .3z"/>
+        </svg>
+        <a href="https://github.com/Rexwar" target="_blank">github.com/Rexwar</a>
+      </span>
+
+    </div>
+  </header>
+
+  <!-- ══ EDUCACIÓN ══ -->
+  <section>
+    <h2 class="section-title">🎓 Educación</h2>
+
+    <div class="edu-item">
+      <h3>Instituto Obispo Silva Lezaeta (IOSL)</h3>
+      <p>Educación básica y media · Calama</p>
+      <span class="badge green">Completa</span>
+    </div>
+
+    <div class="edu-item" style="margin-top:1rem">
+      <h3>Universidad Católica del Norte (UCN)</h3>
+      <p>Ingeniería Civil en Computación e Informática · Antofagasta</p>
+      <p>Egreso estimado: junio 2026</p>
+      <span class="badge">En curso</span>
+    </div>
+  </section>
+
+  <!-- ══ EXPERIENCIA ══ -->
+  <section>
+    <h2 class="section-title">💼 Experiencia</h2>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-header">
+          <div>
+            <div class="tl-company">Falabella</div>
+            <div class="tl-role">Asistente de Bodega · Part time</div>
+          </div>
+          <div class="tl-date">oct 2024 – ene 2026</div>
+        </div>
+        <div class="tl-desc">
+          Mantenimiento del orden, control de acceso e inventario para el cuidado de activos de la empresa.
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot green"></div>
+        <div class="tl-header">
+          <div>
+            <div class="tl-company">UCN – Ayudante Cátedra</div>
+            <div class="tl-role">Diseño de Sistemas Digitales</div>
+          </div>
+          <div class="tl-date">ago – dic 2024</div>
+        </div>
+        <div class="tl-desc">
+          Revisión de evaluaciones y ayudantías para reforzar contenidos de sistemas digitales.
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot green"></div>
+        <div class="tl-header">
+          <div>
+            <div class="tl-company">UCN – Ayudante Cátedra</div>
+            <div class="tl-role">Proyecto Introducción a la Ingeniería</div>
+          </div>
+          <div class="tl-date">ene – jun 2024</div>
+        </div>
+        <div class="tl-desc">
+          Desarrollo de maqueta electrónica con LEDs como material de referencia y apoyo a grupos de alumnos.
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot green"></div>
+        <div class="tl-header">
+          <div>
+            <div class="tl-company">UCN – Ayudante Cátedra</div>
+            <div class="tl-role">Fundamentos de la Computación</div>
+          </div>
+          <div class="tl-date">ago – dic 2023</div>
+        </div>
+        <div class="tl-desc">
+          Revisión de evaluaciones y realización de ayudantías para reforzar contenidos.
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-header">
+          <div>
+            <div class="tl-company">LADECO UCN</div>
+            <div class="tl-role">Operador Logístico – Laboratorios de Computación</div>
+          </div>
+          <div class="tl-date">mar – dic 2023</div>
+        </div>
+        <div class="tl-desc">
+          Registro y control del uso del inmueble por turnos entre clases.
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-header">
+          <div>
+            <div class="tl-company">Lipigas – Centro de Reparto</div>
+            <div class="tl-role">Operador Logístico</div>
+          </div>
+          <div class="tl-date">dic 2019 – feb 2020</div>
+        </div>
+        <div class="tl-desc">
+          Control y cuadratura de inventario, carga de información en sistema, contabilidad y soporte de terreno a distancia.
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-header">
+          <div>
+            <div class="tl-company">Paris</div>
+            <div class="tl-role">Apoyo Navideño</div>
+          </div>
+          <div class="tl-date">dic 2014 – ene 2015</div>
+        </div>
+        <div class="tl-desc">
+          Apoyo en sección trastienda de zapatería.
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ IDIOMAS ══ -->
+  <section>
+    <h2 class="section-title">🌐 Idiomas</h2>
+    <div class="skills-grid">
+      <div class="skill-chip">🇨🇱 Español<br><small style="color:var(--muted)">Nativo</small></div>
+      <div class="skill-chip">🇺🇸 Inglés<br><small style="color:var(--muted)">B2</small></div>
+      <div class="skill-chip">🇩🇪 Alemán<br><small style="color:var(--muted)">Básico</small></div>
+    </div>
+  </section>
+
+  <!-- ══ PROYECTOS GITHUB ══ -->
+  <section>
+    <h2 class="section-title">
+      <svg style="width:18px;height:18px;fill:var(--accent)" viewBox="0 0 24 24">
+        <path d="M12 .3C5.4.3 0 5.7 0 12.3c0 5.3 3.4 9.8 8.2
+                 11.4.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.5-1.4-1.3-1.8-1.3-1.8-1.1-.7.1-.7.1-.7
+                 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1
+                 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9
+                 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2
+                 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17
+                 4.7 18 5 18 5c.6 1.7.2 2.9.1 3.2.8.8 1.2
+                 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8
+                 1.1.8 2.2v3.3c0 .3.2.7.8.6C20.6 22.1 24
+                 17.6 24 12.3 24 5.7 18.6.3 12 .3z"/>
+      </svg>
+      Proyectos en GitHub
+    </h2>
+
+    <div class="projects-grid">
+
+      <!--
+        ─────────────────────────────────────────────────────
+        EDITA ESTAS TARJETAS con tus repos reales.
+        Copia el bloque "project-card" para agregar más.
+        ─────────────────────────────────────────────────────
+      -->
+
+      <a class="project-card" href="https://github.com/Rexwar/NOMBRE_REPO" target="_blank" style="display:block;color:inherit">
+        <h3>🔧 Nombre del Repo</h3>
+        <p>Descripción breve de qué hace el proyecto y qué aprendiste.</p>
+        <div class="project-meta">
+          <span>
+            <span class="dot-lang" style="background:#f1e05a"></span>
+            JavaScript
+          </span>
+          <span>⭐ 0</span>
+        </div>
+      </a>
+
+      <a class="project-card" href="https://github.com/Rexwar/NOMBRE_REPO_2" target="_blank" style="display:block;color:inherit">
+        <h3>💡 Otro Proyecto</h3>
+        <p>Descripción breve. Tecnologías usadas, problema que resuelve.</p>
+        <div class="project-meta">
+          <span>
+            <span class="dot-lang" style="background:#3572A5"></span>
+            Python
+          </span>
+          <span>⭐ 0</span>
+        </div>
+      </a>
+
+      <a class="project-card" href="https://github.com/Rexwar/NOMBRE_REPO_3" target="_blank" style="display:block;color:inherit">
+        <h3>📐 Otro Proyecto</h3>
+        <p>Descripción breve. Tecnologías usadas, problema que resuelve.</p>
+        <div class="project-meta">
+          <span>
+            <span class="dot-lang" style="background:#e34c26"></span>
+            HTML/CSS
+          </span>
+          <span>⭐ 0</span>
+        </div>
+      </a>
+
+    </div>
+
+    <p style="margin-top:1rem;font-size:.85rem;color:var(--muted);text-align:center">
+      Ver todos los repositorios →
+      <a href="https://github.com/Rexwar?tab=repositories" target="_blank">github.com/Rexwar</a>
+    </p>
+  </section>
 
   <footer>
-    <small>© 2026 Rey Valdes</small>
+    <p>Hecho con HTML puro · Desplegado en GitHub Pages</p>
+    <p style="margin-top:.3rem">© 2025 Rey Valdés Marangunic</p>
   </footer>
 
-  <script src="js/main.js"></script>
+</div>
 </body>
 </html>
