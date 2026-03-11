@@ -7,6 +7,7 @@
 import { education, experience, languages, projects } from './data.js';
 import { renderEducation, renderExperience, renderLanguages, renderProjects } from './render.js';
 import { initNav } from './nav.js';
+import { initRainbow } from './rainbow.js';
 
 // Inyectar contenido en cada sección
 document.getElementById('education-list').innerHTML    = renderEducation(education);
@@ -16,3 +17,6 @@ document.getElementById('projects-grid').innerHTML     = renderProjects(projects
 
 // Inicializar navegación
 initNav();
+
+// Inicializar efecto arcoíris
+initRainbow();
