@@ -1,0 +1,10 @@
+/* ══════════════════════════════════════════════
+   styles.css — Punto de entrada de estilos
+   Solo importa los módulos en el orden correcto.
+   No contiene reglas propias.
+══════════════════════════════════════════════ */
+
+@import url('base.css');
+@import url('layout.css');
+@import url('components.css');
+@import url('nav.css');

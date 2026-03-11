@@ -1,0 +1,32 @@
+/* ══════════════════════════════════════════════
+   base.css — Reset, variables CSS y estilos globales
+   Si cambias colores o tipografía, solo tocas AQUÍ.
+══════════════════════════════════════════════ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 1px;
+}
+
+:root {
+  --bg:      #0d1117;
+  --surface: #161b22;
+  --border:  #30363d;
+  --accent:  #718dac;
+  --accent2: #3fb950;
+  --link:    #3280db;
+  --text:    #e6edf3;
+  --muted:   #8b949e;
+  --radius:  10px;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
