@@ -1,0 +1,142 @@
+/* ══════════════════════════════════════════════
+   components.css — Componentes reutilizables
+   Cada bloque es independiente. Si eliminas
+   una sección del HTML, su CSS está aquí aislado.
+══════════════════════════════════════════════ */
+
+/* ── CONTACT CHIPS ── */
+.contact-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+  justify-content: center;
+  margin-top: .5rem;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: .3rem .9rem;
+  font-size: .85rem;
+  color: var(--muted);
+}
+
+.chip svg { width: 14px; height: 14px; fill: var(--accent); flex-shrink: 0; }
+
+/* ── BADGES ── */
+.badge {
+  display: inline-block;
+  background: #1f3a5f;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  font-size: .75rem;
+  padding: .15rem .65rem;
+  margin-top: .25rem;
+}
+.badge.green {
+  background: #1a3a25;
+  color: var(--accent2);
+  border-color: var(--accent2);
+}
+
+/* ── EDUCACIÓN ── */
+.edu-item + .edu-item { margin-top: 1rem; }
+.edu-item h3 { font-size: 1rem; font-weight: 600; }
+.edu-item p  { color: var(--muted); font-size: .9rem; }
+
+/* ── TIMELINE ── */
+.timeline {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 6px; bottom: 6px;
+  width: 2px;
+  background: var(--border);
+  border-radius: 2px;
+}
+
+.tl-item { position: relative; margin-bottom: 1.5rem; }
+.tl-item:last-child { margin-bottom: 0; }
+
+.tl-dot {
+  position: absolute;
+  left: -1.5rem;
+  top: 6px;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--bg);
+  transform: translateX(-4px);
+}
+.tl-dot.green { background: var(--accent2); }
+
+.tl-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: .25rem;
+}
+
+.tl-company { font-weight: 600; font-size: .95rem; }
+.tl-role    { font-size: .85rem; color: var(--accent); margin-top: .1rem; }
+.tl-date    { font-size: .8rem;  color: var(--muted); white-space: nowrap; }
+.tl-desc    { font-size: .85rem; color: var(--muted); margin-top: .4rem; }
+
+/* ── SKILLS / IDIOMAS ── */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: .75rem;
+}
+
+.skill-chip {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: .5rem .8rem;
+  font-size: .85rem;
+  text-align: center;
+  color: var(--text);
+}
+
+/* ── PROJECT CARDS ── */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.project-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+  transition: border-color .2s;
+}
+.project-card:hover { border-color: var(--accent); }
+.project-card h3    { font-size: .95rem; color: var(--accent); margin-bottom: .4rem; }
+.project-card p     { font-size: .82rem; color: var(--muted); }
+
+.project-meta {
+  display: flex;
+  gap: .8rem;
+  margin-top: .75rem;
+  font-size: .78rem;
+  color: var(--muted);
+}
+.project-meta span { display: flex; align-items: center; gap: .3rem; }
+
+.dot-lang {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
