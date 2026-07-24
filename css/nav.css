@@ -45,3 +45,18 @@
 .chip-breathing {
   animation: breathing 4.5s ease-in-out infinite;
 }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 640px) {
+  .nav-buttons {
+    gap: .5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  /* Botones a lo ancho, táctiles y parejos */
+  .nav-btn {
+    flex: 1 1 auto;
+    padding: .55rem .8rem;
+    font-size: .85rem;
+  }
+}

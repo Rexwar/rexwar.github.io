@@ -94,7 +94,8 @@
 /* ── SKILLS / IDIOMAS ── */
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  /* min() evita desborde en pantallas más angostas que el mínimo */
+  grid-template-columns: repeat(auto-fill, minmax(min(130px, 100%), 1fr));
   gap: .75rem;
 }
 
@@ -111,7 +112,8 @@
 /* ── PROJECT CARDS ── */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  /* min() evita desborde en pantallas más angostas que el mínimo */
+  grid-template-columns: repeat(auto-fill, minmax(min(240px, 100%), 1fr));
   gap: 1rem;
 }
 
@@ -139,4 +141,25 @@
   width: 10px; height: 10px;
   border-radius: 50%;
   display: inline-block;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 640px) {
+  /* Chips más compactos; el email largo no desborda */
+  .chip {
+    font-size: .78rem;
+    padding: .25rem .7rem;
+    max-width: 100%;
+  }
+  .chip a { overflow-wrap: anywhere; }
+
+  /* Timeline: fecha debajo del cargo en vez de a la derecha */
+  .tl-header {
+    flex-direction: column;
+    gap: 0;
+  }
+  .tl-date { font-size: .75rem; }
+
+  .timeline { padding-left: 1.15rem; }
+  .tl-dot   { left: -1.15rem; }
 }

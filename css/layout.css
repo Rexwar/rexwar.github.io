@@ -75,6 +75,43 @@ footer {
 }
 
 /* ── RESPONSIVE ── */
-@media (max-width: 500px) {
-  header h1 { font-size: 1.5rem; }
+
+/* Tablet y móvil grande */
+@media (max-width: 640px) {
+  .container {
+    padding: 1rem .75rem 2.5rem;
+  }
+
+  /* Header en columna: avatar arriba, texto y chips debajo */
+  header {
+    flex-direction: column;
+    padding: 1.5rem 1rem;
+    gap: .75rem;
+  }
+
+  header h1 { font-size: 1.25rem; }
+
+  .tagline { font-size: .9rem; }
+
+  .avatar {
+    width: 80px;
+    height: 80px;
+  }
+
+  section {
+    padding: 1.15rem 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .section-title { font-size: 1rem; }
+}
+
+/* Móvil pequeño */
+@media (max-width: 380px) {
+  header h1 { font-size: 1.1rem; }
+
+  .avatar {
+    width: 64px;
+    height: 64px;
+  }
 }
