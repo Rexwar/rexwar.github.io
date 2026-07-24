@@ -1,0 +1,20 @@
+# Herramientas y archivos locales (no van al repo)
+cbm/
+pdf/
+LEEME.md
+INTEGRACION-CODEBASE-MEMORY.md
+.atl/
+.claude/
+.vscode/
+
+# Script de revisión y sus reportes
+scrape_github.py
+github_report.json
+github_report.md
+
+# Borradores locales
+PERFIL-GITHUB-README.md
+
+# Secretos y caches — NUNCA subir
+.env
+__pycache__/

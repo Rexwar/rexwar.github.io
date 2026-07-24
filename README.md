@@ -1,62 +1,34 @@
 # rexwar.github.io
-Portafolio
 
-cosas de markdown
+CV y portafolio web de **Rey Valdés Marangunic** — estudiante de Ingeniería Civil en Computación e Informática (UCN).
 
-### Titulo 1
-## Titulo 2
-# Titulo 3
+**En vivo:** [rexwar.github.io](https://rexwar.github.io)
 
-> [!NOTE]
-> Nota informativa
+## Stack
 
-> [!WARNING]
-> Advertencia
+- HTML, CSS y JavaScript puros (módulos ES) — sin frameworks, sin build step, cero dependencias runtime.
+- Contenido data-driven: todo el contenido vive en `js/data.js`.
+- Desplegado en GitHub Pages.
 
-> [!TIP]
-> Consejo
+## Estructura
 
-> [!IMPORTANT]
-> Importante
-
-Inline: $a^2 + b^2 = c^2$
-
-Bloque:
-$$
-\int_0^1 x^2 dx
-$$
-
-<details>
-<summary>Ver más</summary>
-
-Contenido oculto
-</details>
-
-```js
-console.log("Hola mundo")
+```
+├── index.html        # Estructura de la página
+├── css/
+│   ├── styles.css    # Punto de entrada (solo imports)
+│   ├── base.css      # Reset, variables y tipografía
+│   ├── layout.css    # Container, header, secciones, responsive
+│   ├── components.css# Chips, timeline, cards
+│   └── nav.css       # Navegación y animaciones
+├── js/
+│   ├── main.js       # Orquestador (punto de entrada)
+│   ├── data.js       # Única fuente de verdad del contenido
+│   ├── render.js     # Funciones puras de renderizado
+│   ├── nav.js        # Navegación entre vistas
+│   └── rainbow.js    # Micro-animación del chip de GitHub
+└── specs/            # Visión y especificaciones por fase
 ```
 
----
+## Editar contenido
 
-- [x] Hecho
-- [ ] Pendiente
-
-***
-[texto con link](rexwar.github.io)
-
-___
-
-- Item
-- Item
-  - Subitem
-    - Subsubitem
-
-* Item
-+ Item
-
----
-
-| Columna 1 | Columna 2 | Columna 3 |
-|----------|----------|----------|
-| A        | B        | C        |
-| 1        | 2        | 3        |
+Para agregar o modificar educación, experiencia, idiomas o proyectos, solo se toca `js/data.js`.
