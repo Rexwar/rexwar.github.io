@@ -10,6 +10,7 @@ import { initNav } from './nav.js';
 import { initRainbow } from './rainbow.js';
 import { initNodeNetwork } from './nodeNetwork.js';
 import { initSpotlight } from './spotlight.js';
+import { initContactChips } from './contactChips.js';
 
 // Inyectar contenido en cada sección
 document.getElementById('education-list').innerHTML    = renderEducation(education);
@@ -24,6 +25,7 @@ initNav();
 // Fondo animado (independiente del contenido)
 initNodeNetwork();
 initSpotlight();
+initContactChips();
 
 // Inicializar efecto arcoíris
 initRainbow();

@@ -27,6 +27,39 @@
 
 .chip svg { width: 14px; height: 14px; fill: var(--accent); flex-shrink: 0; }
 
+/* Chips privados: revelar al mantener presionado / copiar al clic */
+.chip-reveal, .chip-copy {
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.chip-reveal-text { min-width: 4.5rem; text-align: center; }
+
+.chip-toast {
+  position: absolute;
+  top: -1.6rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--accent2);
+  color: var(--bg);
+  font-size: .72rem;
+  font-weight: 600;
+  padding: .15rem .5rem;
+  border-radius: 6px;
+  white-space: nowrap;
+  z-index: 2;
+  animation: toast-fade 1.2s ease forwards;
+}
+
+@keyframes toast-fade {
+  0%   { opacity: 0; transform: translateX(-50%) translateY(4px); }
+  15%  { opacity: 1; transform: translateX(-50%) translateY(0); }
+  80%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+
 /* ── BADGES ── */
 .badge {
   display: inline-block;
