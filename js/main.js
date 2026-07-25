@@ -4,7 +4,7 @@
 //  No contiene lógica de negocio ni HTML inline.
 // ══════════════════════════════════════════════
 
-import { education, experience, languages, projects, stack } from './data.js';
+import { education, experience, languages, projects, stack, terminalScript } from './data.js';
 import { renderEducation, renderExperience, renderLanguages, renderProjects, renderStack } from './render.js';
 import { initNav } from './nav.js';
 import { initRainbow } from './rainbow.js';
@@ -12,6 +12,7 @@ import { initNodeNetwork } from './nodeNetwork.js';
 import { initSpotlight } from './spotlight.js';
 import { initContactChips } from './contactChips.js';
 import { initReveal } from './reveal.js';
+import { initTerminal } from './terminal.js';
 
 // Inyectar contenido en cada sección
 document.getElementById('education-list').innerHTML    = renderEducation(education);
@@ -28,6 +29,7 @@ initNodeNetwork();
 initSpotlight();
 initContactChips();
 initReveal();
+initTerminal(terminalScript);
 
 // Inicializar efecto arcoíris
 initRainbow();

@@ -124,6 +124,70 @@
 .tl-date    { font-size: .8rem;  color: var(--muted); white-space: nowrap; }
 .tl-desc    { font-size: .85rem; color: var(--muted); margin-top: .4rem; }
 
+/* ── TERMINAL + STACK (grid de 2 columnas) ── */
+.terminal-stack-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.terminal-window {
+  background: #0a0e14;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+.terminal-titlebar {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .55rem .75rem;
+  background: #161b22;
+  border-bottom: 1px solid var(--border);
+}
+
+.terminal-dot {
+  width: 11px; height: 11px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.dot-red    { background: #ff5f56; }
+.dot-yellow { background: #ffbd2e; cursor: pointer; }
+.dot-green  { background: #27c93f; }
+
+.terminal-title {
+  margin-left: .4rem;
+  font-size: .75rem;
+  color: var(--muted);
+}
+
+.terminal-body {
+  margin: 0;
+  padding: 1rem;
+  min-height: 7.5rem;
+  font-size: .82rem;
+  line-height: 1.5;
+  color: var(--accent2);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.terminal-body::after {
+  content: '▌';
+  animation: blink-cursor 1s step-end infinite;
+}
+
+.is-minimized .terminal-body { display: none; }
+
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0; }
+}
+
+.stack-panel .section-title { margin-bottom: 1rem; }
+
 /* ── STACK TÉCNICO ── */
 .stack-category + .stack-category { margin-top: 1.1rem; }
 
@@ -211,6 +275,12 @@
 
 /* ── RESPONSIVE ── */
 @media (max-width: 640px) {
+  .terminal-stack-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .terminal-body { font-size: .78rem; min-height: 6rem; }
+
   /* Chips más compactos; el email largo no desborda */
   .chip {
     font-size: .78rem;

@@ -55,6 +55,27 @@
     <button class="nav-btn" data-view="projects">📊 Proyectos</button>
   </div>
 
+  <!-- ══ TERMINAL + STACK TÉCNICO ══
+       Primera sección: terminal con efecto typing a la
+       izquierda, stack agrupado por categoría a la derecha.
+  ══ -->
+  <section id="stack-section" class="terminal-stack-grid" data-reveal>
+    <div class="terminal-window" data-terminal>
+      <div class="terminal-titlebar">
+        <span class="terminal-dot dot-red"></span>
+        <span class="terminal-dot dot-yellow" data-terminal-minimize title="Minimizar"></span>
+        <span class="terminal-dot dot-green"></span>
+        <span class="terminal-title">zsh</span>
+      </div>
+      <pre class="terminal-body" data-terminal-body></pre>
+    </div>
+
+    <div class="stack-panel">
+      <h2 class="section-title">🛠️ Stack Técnico</h2>
+      <div id="stack-list"></div>
+    </div>
+  </section>
+
   <!-- ══ EDUCACIÓN
        El contenido lo inyecta render.js desde data.js
   ══ -->
@@ -74,12 +95,6 @@
       Ver todos los repositorios →
       <a href="https://github.com/Rexwar?tab=repositories" target="_blank">github.com/Rexwar</a>
     </p>
-  </section>
-
-  <!-- ══ STACK TÉCNICO ══ -->
-  <section id="stack-section" data-reveal>
-    <h2 class="section-title">🛠️ Stack Técnico</h2>
-    <div id="stack-list"></div>
   </section>
 
   <!-- ══ EXPERIENCIA ══ -->

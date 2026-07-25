@@ -72,6 +72,12 @@ export const experience = [
   },
 ];
 
+export const terminalScript =
+  "rey@portfolio ~ % whoami\n" +
+  "> Rey Valdés — Ingeniero titulado (UCN)\n\n" +
+  "rey@portfolio ~ % cat intereses.txt\n" +
+  "> Frontend · UI/UX · micro-interacciones · aprendizaje constante\n";
+
 export const stack = [
   { category: "Frontend", items: [
     { label: "HTML5", icon: "fa-brands fa-html5" },
