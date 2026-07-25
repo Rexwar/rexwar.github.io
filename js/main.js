@@ -11,6 +11,7 @@ import { initRainbow } from './rainbow.js';
 import { initNodeNetwork } from './nodeNetwork.js';
 import { initSpotlight } from './spotlight.js';
 import { initContactChips } from './contactChips.js';
+import { initReveal } from './reveal.js';
 
 // Inyectar contenido en cada sección
 document.getElementById('education-list').innerHTML    = renderEducation(education);
@@ -26,6 +27,7 @@ initNav();
 initNodeNetwork();
 initSpotlight();
 initContactChips();
+initReveal();
 
 // Inicializar efecto arcoíris
 initRainbow();
