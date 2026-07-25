@@ -14,9 +14,9 @@ export const education = [
   {
     institution: "Universidad Católica del Norte (UCN)",
     description: "Ingeniería Civil en Computación e Informática · Antofagasta",
-    extra: "Egreso estimado: junio 2026",
-    status: "En curso",
-    statusType: "blue",
+    extra: "Titulado · 2026",
+    status: "Titulado",
+    statusType: "green",
   },
 ];
 
