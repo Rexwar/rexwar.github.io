@@ -74,7 +74,8 @@ export const experience = [
 
 export const terminalScript =
   "rey@portfolio ~ % whoami\n" +
-  "> Rey Valdés — Ingeniero titulado (UCN)\n\n" +
+  "> Instancia única de la clase Rey; el constructor tardó 24 años\n" +
+  "  en no lanzar excepciones.\n\n" +
   "rey@portfolio ~ % cat intereses.txt\n" +
   "> Frontend · UI/UX · micro-interacciones · aprendizaje constante\n";
 
