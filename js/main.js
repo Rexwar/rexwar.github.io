@@ -4,8 +4,8 @@
 //  No contiene lógica de negocio ni HTML inline.
 // ══════════════════════════════════════════════
 
-import { education, experience, languages, projects } from './data.js';
-import { renderEducation, renderExperience, renderLanguages, renderProjects } from './render.js';
+import { education, experience, languages, projects, stack } from './data.js';
+import { renderEducation, renderExperience, renderLanguages, renderProjects, renderStack } from './render.js';
 import { initNav } from './nav.js';
 import { initRainbow } from './rainbow.js';
 import { initNodeNetwork } from './nodeNetwork.js';
@@ -16,6 +16,7 @@ document.getElementById('education-list').innerHTML    = renderEducation(educati
 document.getElementById('experience-list').innerHTML   = renderExperience(experience);
 document.getElementById('languages-list').innerHTML    = renderLanguages(languages);
 document.getElementById('projects-grid').innerHTML     = renderProjects(projects);
+document.getElementById('stack-list').innerHTML        = renderStack(stack);
 
 // Inicializar navegación
 initNav();

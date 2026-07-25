@@ -72,6 +72,27 @@ export const experience = [
   },
 ];
 
+export const stack = [
+  { category: "Frontend", items: [
+    { label: "HTML5", icon: "fa-brands fa-html5" },
+    { label: "CSS3", icon: "fa-brands fa-css3-alt" },
+    { label: "JavaScript", icon: "fa-brands fa-js" },
+  ]},
+  { category: "Backend", items: [
+    { label: "Node.js", icon: "fa-brands fa-node-js" },
+    { label: "Express", icon: "fa-solid fa-server" },
+    { label: "gRPC", icon: "fa-solid fa-diagram-project" },
+  ]},
+  { category: "Cloud & DevOps", items: [
+    { label: "Docker", icon: "fa-brands fa-docker" },
+    { label: "GitHub Actions", icon: "fa-brands fa-github" },
+  ]},
+  { category: "Bases de datos", items: [
+    { label: "MongoDB", icon: "fa-solid fa-leaf" },
+    { label: "Neo4j", icon: "fa-solid fa-circle-nodes" },
+  ]},
+];
+
 export const languages = [
   { flag: "🇨🇱", name: "Español", level: "Nativo" },
   { flag: "🇺🇸", name: "Inglés",  level: "B2"     },

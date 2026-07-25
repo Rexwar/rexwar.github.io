@@ -6,9 +6,9 @@
 
 // Mapa declarativo: qué secciones son visibles en cada vista
 const VIEWS = {
-  all:        ['education', 'experience', 'languages', 'projects'],
+  all:        ['education', 'experience', 'languages', 'projects', 'stack'],
   experience: ['education', 'experience'],
-  projects:   ['projects'],
+  projects:   ['projects', 'stack'],
 };
 
 function setView(viewName) {

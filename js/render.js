@@ -31,6 +31,19 @@ export function renderExperience(items) {
   `).join('');
 }
 
+export function renderStack(categories) {
+  return categories.map(cat => /* html */`
+    <div class="stack-category">
+      <h3 class="stack-category-title">${cat.category}</h3>
+      <div class="stack-chips">
+        ${cat.items.map(item => `
+          <span class="stack-chip"><i class="${item.icon}"></i> ${item.label}</span>
+        `).join('')}
+      </div>
+    </div>
+  `).join('');
+}
+
 export function renderLanguages(items) {
   return items.map(item => /* html */`
     <div class="skill-chip">
