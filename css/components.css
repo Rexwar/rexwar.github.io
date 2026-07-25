@@ -4,38 +4,68 @@
    una sección del HTML, su CSS está aquí aislado.
 ══════════════════════════════════════════════ */
 
-/* ── CONTACT CHIPS ── */
+/* ── CONTACT CHIPS ──
+   Apiladas verticalmente, solo ícono por defecto.
+   Mantener presionado revela el valor con transición suave. */
 .contact-chips {
   display: flex;
-  flex-wrap: wrap;
-  gap: .6rem;
-  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: .5rem;
   margin-top: .5rem;
 }
 
 .chip {
   display: inline-flex;
   align-items: center;
-  gap: .4rem;
+  gap: 0;
   background: var(--bg);
   border: 1px solid var(--border);
   border-radius: 999px;
-  padding: .3rem .9rem;
+  padding: .4rem .55rem;
   font-size: .85rem;
   color: var(--muted);
 }
 
 .chip svg { width: 14px; height: 14px; fill: var(--accent); flex-shrink: 0; }
 
-/* Chips privados: revelar al mantener presionado / copiar al clic */
-.chip-reveal, .chip-copy {
+/* Chip revelable: ícono siempre visible con destello suave que
+   indica que es interactuable; el texto aparece al mantener
+   presionado (mousedown/touchstart) y se oculta al soltar. */
+.chip-reveal {
   position: relative;
   cursor: pointer;
   user-select: none;
   -webkit-user-select: none;
 }
 
-.chip-reveal-text { min-width: 4.5rem; text-align: center; }
+.chip-icon {
+  width: 1em;
+  text-align: center;
+  animation: icon-glint 2.6s ease-in-out infinite;
+}
+
+.chip-label {
+  display: inline-block;
+  max-width: 0;
+  margin-left: 0;
+  opacity: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: max-width .35s ease, opacity .25s ease, margin-left .35s ease;
+}
+
+.chip-reveal.is-revealed .chip-label,
+.chip-reveal:focus-within .chip-label {
+  max-width: 220px;
+  margin-left: .5rem;
+  opacity: 1;
+}
+
+@keyframes icon-glint {
+  0%, 100% { text-shadow: 0 0 0 rgba(113,141,172,0); }
+  50%      { text-shadow: 0 0 8px rgba(113,141,172,.9); }
+}
 
 .chip-toast {
   position: absolute;

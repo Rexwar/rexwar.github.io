@@ -1,9 +1,10 @@
 // ══════════════════════════════════════════════
 //  contactChips.js — Chips de contacto privados
-//  .chip-reveal:  mantener presionado muestra el
-//                 valor y lo copia; soltar lo oculta.
-//  .chip-copy:    un clic copia el valor (el texto
-//                 sigue siempre visible).
+//  Por defecto solo muestran el ícono (con un
+//  destello sutil que indica que son interactuables).
+//  Mantener presionado revela el valor con una
+//  transición suave; si tiene data-copy-value,
+//  también lo copia al portapapeles.
 // ══════════════════════════════════════════════
 
 import { copyToClipboard } from './clipboard.js';
@@ -16,42 +17,33 @@ function showToast(chip) {
   setTimeout(() => toast.remove(), 1200);
 }
 
-function initRevealChips() {
+export function initContactChips() {
   document.querySelectorAll('.chip-reveal').forEach(chip => {
-    const label = chip.querySelector('.chip-reveal-text');
-    const original = label.textContent;
-    const value = chip.dataset.revealValue;
-    let copied = false;
+    const copyValue = chip.dataset.copyValue;
+    let copiedThisHold = false;
 
     const reveal = () => {
-      label.textContent = value;
-      if (!copied) {
-        copyToClipboard(value);
+      chip.classList.add('is-revealed');
+      if (copyValue && !copiedThisHold) {
+        copyToClipboard(copyValue);
         showToast(chip);
-        copied = true;
+        copiedThisHold = true;
       }
     };
-    const hide = () => { label.textContent = original; };
+    const hide = () => {
+      chip.classList.remove('is-revealed');
+      copiedThisHold = false;
+    };
 
     chip.addEventListener('mousedown', reveal);
     chip.addEventListener('mouseup', hide);
     chip.addEventListener('mouseleave', hide);
-    chip.addEventListener('touchstart', e => { e.preventDefault(); reveal(); }, { passive: false });
+    chip.addEventListener('touchstart', reveal, { passive: true });
     chip.addEventListener('touchend', hide);
-  });
-}
 
-function initCopyChips() {
-  document.querySelectorAll('.chip-copy').forEach(chip => {
-    chip.addEventListener('click', e => {
-      e.preventDefault(); // no abrir mailto: al copiar
-      copyToClipboard(chip.dataset.copyValue);
-      showToast(chip);
-    });
+    // El chip de email es solo para copiar: no abre el cliente de correo.
+    if (chip.classList.contains('chip-nonav')) {
+      chip.addEventListener('click', e => e.preventDefault());
+    }
   });
-}
-
-export function initContactChips() {
-  initRevealChips();
-  initCopyChips();
 }

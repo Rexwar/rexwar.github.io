@@ -36,16 +36,6 @@
   color: var(--bg);
 }
 
-/* ── ANIMACIÓN DE RESPIRACIÓN ── */
-@keyframes breathing {
-  0%, 100% { transform: scale(1); }
-  50%       { transform: scale(1.08); }
-}
-
-.chip-breathing {
-  animation: breathing 4.5s ease-in-out infinite;
-}
-
 /* ── RESPONSIVE ── */
 @media (max-width: 640px) {
   .nav-buttons {
