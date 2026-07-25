@@ -6,6 +6,8 @@
 
 /* ── CONTAINER ── */
 .container {
+  position: relative;
+  z-index: 1; /* sobre .node-canvas */
   max-width: 860px;
   margin: 0 auto;
   padding: 2rem 1.25rem 4rem;

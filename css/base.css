@@ -30,3 +30,12 @@ body {
 
 a { color: var(--link); text-decoration: none; }
 a:hover { text-decoration: underline; }
+
+/* ── FONDO ANIMADO ──
+   Canvas fijo detrás de todo el contenido (ver js/nodeNetwork.js) */
+.node-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
