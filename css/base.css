@@ -39,3 +39,11 @@ a:hover { text-decoration: underline; }
   z-index: 0;
   pointer-events: none;
 }
+
+/* Halo que sigue el cursor (ver js/spotlight.js) */
+.spotlight {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
