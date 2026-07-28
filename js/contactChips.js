@@ -2,9 +2,11 @@
 //  contactChips.js — Chips de contacto privados
 //  Por defecto solo muestran el ícono (con un
 //  destello sutil que indica que son interactuables).
-//  Mantener presionado revela el valor con una
-//  transición suave; si tiene data-copy-value,
-//  también lo copia al portapapeles.
+//  En escritorio, pasar el mouse por encima revela el
+//  valor (transición suave) y lo oculta al salir. En
+//  touch (sin hover real) se usa mantener presionado.
+//  Si el chip tiene data-copy-value, también copia al
+//  portapapeles al revelarse.
 // ══════════════════════════════════════════════
 
 import { copyToClipboard } from './clipboard.js';
@@ -35,9 +37,11 @@ export function initContactChips() {
       copiedThisHold = false;
     };
 
-    chip.addEventListener('mousedown', reveal);
-    chip.addEventListener('mouseup', hide);
+    // Escritorio: mostrar al pasar el mouse, ocultar al salir.
+    chip.addEventListener('mouseenter', reveal);
     chip.addEventListener('mouseleave', hide);
+
+    // Touch: no hay hover real, se usa mantener presionado.
     chip.addEventListener('touchstart', reveal, { passive: true });
     chip.addEventListener('touchend', hide);
 
