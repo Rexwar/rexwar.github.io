@@ -84,6 +84,8 @@ export const stack = [
     { label: "HTML5", icon: "fa-brands fa-html5" },
     { label: "CSS3", icon: "fa-brands fa-css3-alt" },
     { label: "JavaScript", icon: "fa-brands fa-js" },
+    { label: "React", icon: "fa-brands fa-react" },
+    { label: "React Native", icon: "fa-solid fa-mobile-screen" },
   ]},
   { category: "Backend", items: [
     { label: "Node.js", icon: "fa-brands fa-node-js" },
