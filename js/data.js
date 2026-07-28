@@ -22,6 +22,20 @@ export const education = [
 
 export const experience = [
   {
+    company: "UCN — Tesista",
+    role: "Pipeline de ML para predicción de ETA en transporte",
+    date: "2025 – 2026",
+    desc: "Diseño del pipeline de recolección y procesamiento de datos del modelo predictivo: ETL/EDA con pandas, NumPy y scikit-learn, integrando Railway, Supabase y Google Colab en un flujo automatizado que sostiene el entrenamiento de modelos supervisados.",
+    dotColor: "green",
+  },
+  {
+    company: "UCN — Laboratorio de Robótica",
+    role: "Asistente de Investigación · Dr. Oswald Menéndez",
+    date: "2025",
+    desc: "Adquisición de datos en Python desde un electrómetro Keithley para caracterización eléctrica en plantas: comunicación PC-instrumento, configuración de lectura y graficado en tiempo real. Diseño en CAD e impresión 3D de elevadores de altura variable (5+ iteraciones).",
+    dotColor: "green",
+  },
+  {
     company: "Falabella",
     role: "Asistente de Bodega · Part time",
     date: "oct 2024 – ene 2026",
