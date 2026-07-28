@@ -94,10 +94,19 @@ export const terminalScript =
   "> Frontend · UI/UX · micro-interacciones · aprendizaje constante\n";
 
 export const stack = [
+  { category: "AI / ML", items: [
+    { label: "Prompt engineering", icon: "fa-solid fa-comments" },
+    { label: "Agentes de IA", icon: "fa-solid fa-robot" },
+    { label: "RAG", icon: "fa-solid fa-layer-group" },
+    { label: "scikit-learn", icon: "fa-solid fa-chart-line" },
+    { label: "PyTorch", icon: "fa-solid fa-fire" },
+    { label: "ETL/EDA", icon: "fa-solid fa-filter" },
+  ]},
   { category: "Frontend", items: [
     { label: "HTML5", icon: "fa-brands fa-html5" },
     { label: "CSS3", icon: "fa-brands fa-css3-alt" },
     { label: "JavaScript", icon: "fa-brands fa-js" },
+    { label: "TypeScript", icon: "fa-solid fa-code" },
     { label: "React", icon: "fa-brands fa-react" },
     { label: "React Native", icon: "fa-solid fa-mobile-screen" },
   ]},
@@ -105,14 +114,38 @@ export const stack = [
     { label: "Node.js", icon: "fa-brands fa-node-js" },
     { label: "Express", icon: "fa-solid fa-server" },
     { label: "gRPC", icon: "fa-solid fa-diagram-project" },
+    { label: "Python", icon: "fa-brands fa-python" },
+    { label: "Railway", icon: "fa-solid fa-train" },
+    { label: "Supabase", icon: "fa-solid fa-bolt" },
   ]},
-  { category: "Cloud & DevOps", items: [
-    { label: "Docker", icon: "fa-brands fa-docker" },
-    { label: "GitHub Actions", icon: "fa-brands fa-github" },
-  ]},
-  { category: "Bases de datos", items: [
+  { category: "Datos & DevOps", items: [
+    { label: "SQL", icon: "fa-solid fa-database" },
+    { label: "PostgreSQL", icon: "fa-solid fa-database" },
     { label: "MongoDB", icon: "fa-solid fa-leaf" },
     { label: "Neo4j", icon: "fa-solid fa-circle-nodes" },
+    { label: "Git/GitHub", icon: "fa-brands fa-git-alt" },
+    { label: "Docker", icon: "fa-brands fa-docker" },
+    { label: "GitHub Actions", icon: "fa-brands fa-github" },
+    { label: "CI/CD", icon: "fa-solid fa-infinity" },
+    { label: "Linux", icon: "fa-brands fa-linux" },
+  ]},
+  { category: "Arquitectura", items: [
+    { label: "SOLID", icon: "fa-solid fa-cubes" },
+    { label: "Patrones de diseño", icon: "fa-solid fa-shapes" },
+    { label: "User stories", icon: "fa-solid fa-list-check" },
+    { label: "Code review", icon: "fa-solid fa-code-compare" },
+    { label: "Agile", icon: "fa-solid fa-arrows-spin" },
+  ]},
+  { category: "Workflow IA", items: [
+    { label: "OpenCode", icon: "fa-solid fa-terminal" },
+    { label: "Spec-driven dev.", icon: "fa-solid fa-file-lines" },
+    { label: "IA en el flujo de trabajo", icon: "fa-solid fa-wand-magic-sparkles" },
+  ]},
+  { category: "Hardware", items: [
+    { label: "Arduino", icon: "fa-brands fa-arduino" },
+    { label: "CAD / modelado 3D", icon: "fa-solid fa-cube" },
+    { label: "Impresión 3D", icon: "fa-solid fa-print" },
+    { label: "Instrumentación Keithley", icon: "fa-solid fa-gauge" },
   ]},
 ];
 
