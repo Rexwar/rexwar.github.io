@@ -192,4 +192,13 @@ export const projects = [
     stars: 0,
     url: "https://github.com/Rexwar/insightflow-tasks",
   },
+  {
+    emoji: "📈",
+    name: "Sistema de adquisición Keithley",
+    desc: "Software de lectura de voltaje/amperaje y graficado en tiempo real para caracterización eléctrica, con comunicación serial a un electrómetro Keithley. Desarrollado en el Laboratorio de Robótica de la UCN.",
+    lang: "Python · CAD",
+    langColor: "#3572A5",
+    stars: 0,
+    url: "https://github.com/Rexwar?tab=repositories",
+  },
 ];
