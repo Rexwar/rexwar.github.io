@@ -101,6 +101,7 @@ export const stack = [
     { label: "scikit-learn", icon: "fa-solid fa-chart-line" },
     { label: "PyTorch", icon: "fa-solid fa-fire" },
     { label: "ETL/EDA", icon: "fa-solid fa-filter" },
+    { label: "Reinforcement Learning", icon: "fa-solid fa-brain" },
   ]},
   { category: "Frontend", items: [
     { label: "HTML5", icon: "fa-brands fa-html5" },
@@ -143,9 +144,23 @@ export const stack = [
   ]},
   { category: "Hardware", items: [
     { label: "Arduino", icon: "fa-brands fa-arduino" },
-    { label: "CAD / modelado 3D", icon: "fa-solid fa-cube" },
     { label: "Impresión 3D", icon: "fa-solid fa-print" },
     { label: "Instrumentación Keithley", icon: "fa-solid fa-gauge" },
+    { label: "Piloto RPAS (lic. 2020)", icon: "fa-solid fa-helicopter" },
+  ]},
+  { category: "3D, CAD & Geoespacial", items: [
+    { label: "Blender", icon: "fa-solid fa-cube" },
+    { label: "Fusion 360", icon: "fa-solid fa-drafting-compass" },
+    { label: "AutoCAD", icon: "fa-solid fa-ruler-combined" },
+    { label: "ArcGIS", icon: "fa-solid fa-earth-americas" },
+  ]},
+  { category: "Game Dev", items: [
+    { label: "Unity", icon: "fa-solid fa-gamepad" },
+    { label: "Godot", icon: "fa-solid fa-gamepad" },
+  ]},
+  { category: "Multimedia", items: [
+    { label: "Premiere", icon: "fa-brands fa-adobe" },
+    { label: "Photoshop", icon: "fa-brands fa-adobe" },
   ]},
 ];
 
@@ -198,6 +213,15 @@ export const projects = [
     desc: "Software de lectura de voltaje/amperaje y graficado en tiempo real para caracterización eléctrica, con comunicación serial a un electrómetro Keithley. Desarrollado en el Laboratorio de Robótica de la UCN.",
     lang: "Python · CAD",
     langColor: "#3572A5",
+    stars: 0,
+    url: "https://github.com/Rexwar?tab=repositories",
+  },
+  {
+    emoji: "🛰️",
+    name: "Modelado geoespacial con dron",
+    desc: "Modelado geoespacial en ArcGIS a partir de grabaciones propias, capturadas con dron Typhoon H (piloto RPAS licenciado).",
+    lang: "ArcGIS · RPAS",
+    langColor: "#8b5cf6",
     stars: 0,
     url: "https://github.com/Rexwar?tab=repositories",
   },
