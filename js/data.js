@@ -12,9 +12,16 @@ export const education = [
     statusType: "green",
   },
   {
+    institution: "Universidad Técnica Federico Santa María (UTFSM)",
+    description: "Ingeniería Civil en Computación e Informática",
+    extra: "2015 – 2018 · ramos convalidados a la UCN",
+    status: "Convalidado",
+    statusType: "blue",
+  },
+  {
     institution: "Universidad Católica del Norte (UCN)",
     description: "Ingeniería Civil en Computación e Informática · Antofagasta",
-    extra: "Egreso: junio 2026",
+    extra: "2019 – 2026 · Egreso: junio 2026",
     status: "Egresado",
     statusType: "blue",
   },
