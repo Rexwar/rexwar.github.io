@@ -25,6 +25,13 @@ export const education = [
     status: "Egresado",
     statusType: "blue",
   },
+  {
+    institution: "NVIDIA — Deep Learning Institute",
+    description: "Fundamentals of Deep Learning",
+    extra: "sept. 2023",
+    status: "Certificado",
+    statusType: "green",
+  },
 ];
 
 export const experience = [
