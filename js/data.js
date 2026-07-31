@@ -29,6 +29,13 @@ export const education = [
 
 export const experience = [
   {
+    company: "Workshop — ROS + Gazebo / ROS 2",
+    role: "Formación complementaria en robótica y simulación",
+    date: "abr 2026",
+    desc: "Taller de 3 días en ROS y Gazebo, seguido de un taller de 1 día en ROS 2.",
+    dotColor: "green",
+  },
+  {
     company: "UCN — Tesista",
     role: "Pipeline de ML para predicción de ETA en transporte",
     date: "2025 – 2026",
@@ -83,6 +90,13 @@ export const experience = [
     date: "dic 2019 – feb 2020",
     desc: "Control y cuadratura de inventario, carga de información en sistema, contabilidad y soporte de terreno a distancia.",
     dotColor: "",
+  },
+  {
+    company: "Workshop de videojuegos — Construct 2",
+    role: "Ganador",
+    date: "sept 2017",
+    desc: "Primer lugar en un workshop de desarrollo de videojuegos usando Construct 2.",
+    dotColor: "green",
   },
   {
     company: "Paris",
